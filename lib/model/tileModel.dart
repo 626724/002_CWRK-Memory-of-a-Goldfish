@@ -1,3 +1,5 @@
+import '../data/data.dart';
+
 class TileModel{
    bool isSelected = false;
    String imageAssetPath = '';
@@ -34,6 +36,9 @@ class NetworkTileModel{
    }
    bool getIsSelected(){
       return isSelected;
+   }
+   void setTileIndex(int index) {
+      selectedTileIndex = index;
    }
 
 }

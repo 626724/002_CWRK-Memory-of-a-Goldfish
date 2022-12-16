@@ -20,6 +20,14 @@ String url = "";
 String hostUrl = "";
 List<NetworkTileModel> networkPairs = [];
 bool fish = true;
+int moves = 0;
+late bool game_started;
+int duration = 60*1;
+int countdown = 60*1;
+bool absorbing = true;
+bool isVisible = false;
+bool auto = false;
+
 
 List<NetworkTileModel> networkImages = <NetworkTileModel>[];
 List<TileModel> networkImagess = <TileModel>[];
@@ -27,6 +35,9 @@ var response;
 var decodedJson;
 var dio = Dio();
 List picture_set = [];
+
+//define setTileIndex
+
 
 Future<List> getData() async {
   List image_urls = [];
@@ -88,7 +99,7 @@ List<TileModel> getPairs() {
   pairs.add(tileModel);
   pairs.add(tileModel);
 
-  tileModel = TileModel(imageAssetPath: "assets/zoo.png", isSelected: false);
+  tileModel = TileModel(imageAssetPath: "assets/elephant.png", isSelected: false);
   pairs.add(tileModel);
   pairs.add(tileModel);
   return pairs;
@@ -321,7 +332,12 @@ List<NetworkTileModel> getNetworkQuestions() {
   List<NetworkTileModel> networkPairs = <NetworkTileModel>[];
   NetworkTileModel tileModel = NetworkTileModel(
       imageURL:
-          fish?"https://goparker.com/600096/memory/goldfish/images/tileback_g.png":"https://goparker.com/600096/memory/elephant/images/tileback_e.png",
+          fish?
+          // "https://media.giphy.com/media/xTiTnet7xRv1GPTShi/giphy.gif"
+              "https://goparker.com/600096/memory/goldfish/images/tileback_g.png"
+
+
+              :"https://goparker.com/600096/memory/elephant/images/tileback_e.png",
       isSelected: false);
   networkPairs.add(tileModel);
   networkPairs.add(tileModel);
